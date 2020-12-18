@@ -1,38 +1,59 @@
-<script>
-    rn = Math.floor(Math.random()*100); //ค่าที่ถูกสุ่มมา
-    //document.write(rn)
-    //alert(rn);
-    function guess(){
-        num = document.getElementById('number')
-        hist = document.getElementById('hist')
-        result = document.getElementById('result')
-     //  alert(num.value)
-       hist.innerHTML += num.value +" "
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
 
-        if(num.value == rn){
-            result.innerHTML = "ถูกต้อง"
+        rn = Math.floor(Math.random()*100); //ค่าที่ถูกสุ่มมา
+        //document.write(rn)
+        //alert(rn);
+        function guess(){
+            num = document.getElementById('number')
+            hist = document.getElementById('hist')
+            result = document.getElementById('result')
+         //  alert(num.value)
+           hist.innerHTML += num.value +" "
+    
+            if(num.value == rn){
+                result.innerHTML = "ถูกต้อง"
+            }
+            if(num.value < rn){
+                result.innerHTML = "น้อยไป"
+            }
+            if(num.value > rn){
+                result.innerHTML = "มากไป"
+            }
+    
         }
-        if(num.value < rn){
-            result.innerHTML = "น้อยไป"
+        function startOver(){
+            num = document.getElementById('number').value=""
+            hist = document.getElementById('hist').innerHTML=""
+            result = document.getElementById('result').innerHTML=""
+            rn = Math.floor(Math.random()*100);
         }
-        if(num.value > rn){
-            result.innerHTML = "มากไป"
-        }
+    
+    
+    </script>
+    
+    <style>
+       
+    </style>
+</head>
 
-    }
-    function startOver(){
-        num = document.getElementById('number').value=""
-        hist = document.getElementById('hist').innerHTML=""
-        result = document.getElementById('result').innerHTML=""
-        rn = Math.floor(Math.random()*100);
-    }
+    <body align = "center" background="guy.jpg">
+<br><br><br><br><br><br>
+        <input type="Integer" placeholder="?" id="number">
+        <button onclick="guess()">Guess</button>
+        <div id="hist"></div>
+        <div id="result"></div>
+        <br>
+        <button onclick="startOver()">Start Over</button>
 
-</script>
+</body>
+
+</html>
 
 
-<input type="Integer" placeholder="?" id="number">
-<button onclick="guess()">Guess</button>
-<div id="hist"></div>
-<div id="result"></div>
-<br>
-<button onclick="startOver()">Start Over</button>
+
